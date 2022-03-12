@@ -11,7 +11,7 @@ import com.aplikasi.androidmodule.databinding.ActivityMainBinding
 import com.aplikasi.androidmodule.databinding.ItemAdapterTextBinding
 import com.aplikasi.androidmodule.ui.exam_backgroundprocess.ExamBackgroundProcess
 import com.aplikasi.androidmodule.ui.exam_http.ExamHttp
-import com.aplikasi.androidmodule.ui.exam_http.ExamRetrofit
+import com.aplikasi.androidmodule.ui.exam_http.examretrofit.ExamRetrofit
 import com.aplikasi.androidmodule.ui.exam_interface.ExamInterface
 import com.aplikasi.androidmodule.ui.exam_reyclerviewloadmore.ExamRecyclerviewLoadMore
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this,ExamHttp::class.java))
             }
             "Retrofit" -> {
-                startActivity(Intent(this,ExamRetrofit::class.java))
+                startActivity(Intent(this, ExamRetrofit::class.java))
             }
             "Implementation Class Interface" -> {
                 startActivity(Intent(this,ExamInterface::class.java))

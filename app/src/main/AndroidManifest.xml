@@ -17,7 +17,7 @@
             android:name=".ui.exam_reyclerviewloadmore.ExamRecyclerviewLoadMore"
             android:exported="false" />
         <activity
-            android:name=".ui.exam_http.ExamRetrofit"
+            android:name=".ui.exam_http.examretrofit.ExamRetrofit"
             android:exported="false" />
         <activity
             android:name=".ui.exam_interface.ExamInterface"

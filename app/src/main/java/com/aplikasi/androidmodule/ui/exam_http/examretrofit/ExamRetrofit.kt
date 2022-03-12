@@ -1,4 +1,4 @@
-package com.aplikasi.androidmodule.ui.exam_http
+package com.aplikasi.androidmodule.ui.exam_http.examretrofit
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aplikasi.androidmodule.databinding.ActivityExamRetofitBinding
-import com.aplikasi.androidmodule.ui.exam_http.examretrofit.AdapterItems
-import com.aplikasi.androidmodule.ui.exam_http.examretrofit.ApiConfig
 import com.aplikasi.androidmodule.ui.exam_http.examretrofit.response.DataItem
 import com.aplikasi.androidmodule.ui.exam_http.examretrofit.response.ResponseInfo
 import com.aplikasi.androidmodule.ui.exam_http.examretrofit.response.ResponseListData
@@ -45,9 +43,7 @@ class ExamRetrofit : AppCompatActivity() {
     }
 
     private fun getListDataMovie(){
-        val ctx = this
-        val client = ApiConfig.getApiService().getDataMovie()
-        client.enqueue(object : Callback<ResponseListData> {
+        ApiConfig.getApiService().getDataMovie().enqueue(object : Callback<ResponseListData> {
             override fun onResponse(
                 call: Call<ResponseListData>,
                 response: Response<ResponseListData>
@@ -65,7 +61,7 @@ class ExamRetrofit : AppCompatActivity() {
                         }
                         adapterMovie.notifyDataSetChanged()
                     }else{
-                        Toast.makeText(ctx, responseBody.message,Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@ExamRetrofit, responseBody.message,Toast.LENGTH_LONG).show()
                     }
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
@@ -79,10 +75,9 @@ class ExamRetrofit : AppCompatActivity() {
 
     private fun addDataMovie(){
         val ctx = this
-        val client = ApiConfig.getApiService().insertMovie(
+        ApiConfig.getApiService().insertMovie(
             binding.edtTitle.text.toString()
-        )
-        client.enqueue(object : Callback<ResponseInfo> {
+        ).enqueue(object : Callback<ResponseInfo> {
             override fun onResponse(
                 call: Call<ResponseInfo>,
                 response: Response<ResponseInfo>
