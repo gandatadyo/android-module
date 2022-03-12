@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.exam_http.ExamHttp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnHttpConnection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Http Connection" />
+
+    <Button
+        android:id="@+id/btnVolleyGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volley Get" />
+
+    <Button
+        android:id="@+id/btnVolleyPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volley Post" />
+</LinearLayout>

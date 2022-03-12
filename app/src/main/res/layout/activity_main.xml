@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home" />
+
+    <Button
+        android:id="@+id/btnBackgroundProcess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Background Process" />
+
+    <Button
+        android:id="@+id/btnHttpApi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Http Api" />
+
+    <Button
+        android:id="@+id/btnRetrofit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Retrofit" />
+
+    <Button
+        android:id="@+id/btnInterface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Implementation Interface" />
+
+    <Button
+        android:id="@+id/btnRecyclerviewLoadMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recyclerview Load More" />
+
+</LinearLayout>
