@@ -8,7 +8,6 @@ import com.aplikasi.androidmodule.ui.exam_http.examretrofit.response.DataItem
 
 class AdapterItems(private val listData: ArrayList<DataItem>, val clickLister: (DataItem) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemAdapter = ItemAdapterTextBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return CardViewHolder(itemAdapter)

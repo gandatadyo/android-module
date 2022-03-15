@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.aplikasi.androidmodule.databinding.ActivityExamInterfaceBinding
+import java.lang.Exception
 
 class ExamInterface : AppCompatActivity() {
     private lateinit var binding: ActivityExamInterfaceBinding
@@ -27,6 +28,30 @@ class ExamInterface : AppCompatActivity() {
             httpApi.onSuccess()
             httpApi.onFailed()
         }
+
+        val callbackHttpApi = CallbackHttpApi()
+        callbackHttpApi.requestHttpGet("http",object:RequestApi.ResponseApi{
+            override fun onSuccess(result:String) {
+                Toast.makeText(this@ExamInterface,"Success",Toast.LENGTH_LONG).show()
+            }
+
+            override fun onFailed(error:String) {
+                Toast.makeText(this@ExamInterface,"Failed",Toast.LENGTH_LONG).show()
+            }
+        })
+
+
+    }
+}
+
+class CallbackHttpApi :RequestApi{
+    override fun requestHttpGet(url: String, callback: RequestApi.ResponseApi) {
+        try {
+            callback.onSuccess("failed")
+        }catch (e:Exception){
+            callback.onSuccess("failed")
+        }
+        super.requestHttpGet(url, callback)
     }
 }
 

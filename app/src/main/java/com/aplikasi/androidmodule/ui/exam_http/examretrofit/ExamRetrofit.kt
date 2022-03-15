@@ -107,10 +107,7 @@ class ExamRetrofit : AppCompatActivity() {
             binding.edtTitle.text.toString()
         )
         client.enqueue(object : Callback<ResponseInfo> {
-            override fun onResponse(
-                call: Call<ResponseInfo>,
-                response: Response<ResponseInfo>
-            ) {
+            override fun onResponse(call: Call<ResponseInfo>,response: Response<ResponseInfo>) {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if(responseBody!!.status=="true") {

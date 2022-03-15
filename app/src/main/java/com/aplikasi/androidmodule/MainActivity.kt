@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aplikasi.androidmodule.databinding.ActivityMainBinding
 import com.aplikasi.androidmodule.databinding.ItemAdapterTextBinding
+import com.aplikasi.androidmodule.ui.InputDate
 import com.aplikasi.androidmodule.ui.exam_backgroundprocess.ExamBackgroundProcess
 import com.aplikasi.androidmodule.ui.exam_http.ExamHttp
 import com.aplikasi.androidmodule.ui.exam_http.examretrofit.ExamRetrofit
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         "Retrofit",
         "Implementation Class Interface",
         "Recyclerview Load More",
+        "Input Date",
     )
     private val adapterMenu = AdapterMenu(listDataMenu) {
         when (it) {
@@ -41,6 +43,9 @@ class MainActivity : AppCompatActivity() {
             }
             "Recyclerview Load More" -> {
                 startActivity(Intent(this,ExamRecyclerviewLoadMore::class.java))
+            }
+            "Input Date" -> {
+                startActivity(Intent(this,InputDate::class.java))
             }
         }
     }
