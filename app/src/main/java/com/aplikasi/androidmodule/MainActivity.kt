@@ -1,20 +1,25 @@
 package com.aplikasi.androidmodule
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aplikasi.androidmodule.databinding.ActivityMainBinding
 import com.aplikasi.androidmodule.databinding.ItemAdapterTextBinding
 import com.aplikasi.androidmodule.ui.InputDate
+import com.aplikasi.androidmodule.ui.exam_activityresult.ExamActivityResult
 import com.aplikasi.androidmodule.ui.exam_backgroundprocess.ExamBackgroundProcess
 import com.aplikasi.androidmodule.ui.exam_http.ExamHttp
 import com.aplikasi.androidmodule.ui.exam_http.examretrofit.ExamRetrofit
 import com.aplikasi.androidmodule.ui.exam_interface.ExamInterface
 import com.aplikasi.androidmodule.ui.exam_reyclerviewloadmore.ExamRecyclerviewLoadMore
+import com.aplikasi.androidmodule.utils.ModuleGlobal
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -26,7 +31,21 @@ class MainActivity : AppCompatActivity() {
         "Implementation Class Interface",
         "Recyclerview Load More",
         "Input Date",
+        "Activity Set Result",
     )
+
+    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val intent = result.data
+            if(intent!=null){
+                val sresult = intent.getStringExtra("hasil_result").toString()
+                ModuleGlobal().showToast(this,sresult)
+            }
+            // Handle the Intent
+        }
+    }
+
+
     private val adapterMenu = AdapterMenu(listDataMenu) {
         when (it) {
             "Background Process" -> {
@@ -47,6 +66,18 @@ class MainActivity : AppCompatActivity() {
             "Input Date" -> {
                 startActivity(Intent(this,InputDate::class.java))
             }
+            "Activity Set Result Tambah" -> {
+                val intent = Intent(this,ExamActivityResult::class.java)
+                intent.putExtra("mode","tambah")
+                startForResult.launch(intent)
+            }
+            "Activity Set Result Edit" -> {
+                val intent = Intent(this,ExamActivityResult::class.java)
+                intent.putExtra("mode","edit")
+                startForResult.launch(intent)
+            }
+
+
         }
     }
 
